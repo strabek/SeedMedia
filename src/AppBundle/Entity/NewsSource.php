@@ -2,13 +2,15 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;;
+use Doctrine\ORM\Mapping\Index;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * NewsSource
  *
  * @ORM\Table(
- *      name="news_source",
+ *      name="news_sources",
  *      indexes={
  *          @ORM\Index(
  *              name="name_idx",
@@ -49,6 +51,7 @@ class NewsSource
      * @var \DateTime
      *
      * @ORM\Column(name="createdAt", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $createdAt;
 
@@ -56,6 +59,7 @@ class NewsSource
      * @var \DateTime
      *
      * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="update")
      */
     private $updatedAt;
 

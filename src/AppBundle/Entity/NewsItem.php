@@ -3,17 +3,19 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * NewsItem
  *
  * @ORM\Table(
- *      name="news_item",
+ *      name="news_items",
  *      indexes={
  *          @ORM\Index(
  *              name="date_idx",
  *              columns={
- *                  "date"
+ *                  "publishedAt"
  *              }
  *          )
  *      }
@@ -35,14 +37,14 @@ class NewsItem
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\NewsSource")
-     * @ORM\JoinColumn(name="source", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="source", referencedColumnName="id")
      */
     private $source;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
@@ -56,21 +58,22 @@ class NewsItem
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="text")
+     * @ORM\Column(name="url", type="text", nullable=true)
      */
     private $url;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\Column(name="publishedAt", type="datetime", nullable=true)
      */
-    private $date;
+    private $publishedAt;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="createdAt", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $createdAt;
 
@@ -157,27 +160,27 @@ class NewsItem
     }
 
     /**
-     * Set date
+     * Set publishedAt
      *
-     * @param \DateTime $date
+     * @param \DateTime $publishedAt
      *
      * @return NewsItem
      */
-    public function setDate($date)
+    public function setPublishedAt($publishedAt)
     {
-        $this->date = $date;
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }
 
     /**
-     * Get date
+     * Get publishedAt
      *
      * @return \DateTime
      */
-    public function getDate()
+    public function getPublishedAt()
     {
-        return $this->date;
+        return $this->publishedAt;
     }
 
     /**
