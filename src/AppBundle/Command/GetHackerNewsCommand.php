@@ -25,18 +25,19 @@ class GetHackerNewsCommand extends ContainerAwareCommand
         $client = new Client();
         $em = $this->getContainer()->get('doctrine')->getManager();
 
-        $newsSource = $em->getRepository('AppBundle:NewsSource')->find(1);
+        $newsSource = $em->getRepository('AppBundle:NewsSource')->findOneByType('hn');
 
         // Read all new stories
         $newStoriesRaw = $client->request('GET', 'https://hacker-news.firebaseio.com/v0/newstories.json');
 
         $newStories = json_decode($newStoriesRaw->getBody()->getContents());
 
+        $i = 1;
         foreach ($newStories as $key => $storyId) {
             // Read story
             $storyRaw = $client->request('GET', 'https://hacker-news.firebaseio.com/v0/item/' . $storyId . '.json?print=pretty');
             $story = json_decode($storyRaw->getBody()->getContents(), false);
-            $output->writeln('Processing ' . $key . ' of ' . count($newStories) . ' story id: ' . $story->id);
+            $output->writeln('Processing ' . $i . ' of ' . count($newStories) . ' story id: ' . $story->id);
 
             $storyTime = new \DateTime();
 
@@ -57,6 +58,8 @@ class GetHackerNewsCommand extends ContainerAwareCommand
             ;
             $em->persist($newsItem);
             $em->flush();
+
+            $i++;
         }
     }
 }

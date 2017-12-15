@@ -17,6 +17,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *              columns={
  *                  "name"
  *              }
+ *          ),
+ *          @ORM\Index(
+ *              name="type_idx",
+ *              columns={
+ *                  "type"
+ *              }
  *          )
  *      }
  * )
@@ -32,6 +38,13 @@ class NewsSource
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
 
     /**
      * @var string
@@ -168,5 +181,29 @@ class NewsSource
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return NewsSource
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

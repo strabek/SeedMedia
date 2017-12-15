@@ -21,6 +21,7 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "debril/rss-atom-bundle": "^4.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.0",
         "doctrine/orm": "^2.5",
@@ -68,6 +69,9 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },
-        "branch-alias": null
+        "branch-alias": null,
+        "symfony": {
+            "allow-contrib": "true"
+        }
     }
 }

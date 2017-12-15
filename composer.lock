@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d4453192b1aba451d37568e47b46b8a",
+    "content-hash": "c5381247896b81a7138d62d6d18aa9b5",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -105,6 +105,122 @@
                 "tls"
             ],
             "time": "2017-11-29T09:37:33+00:00"
+        },
+        {
+            "name": "debril/feed-io",
+            "version": "v3.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexdebril/feed-io.git",
+                "reference": "538ab22423f047039af61eb55f9b70de31b98f3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexdebril/feed-io/zipball/538ab22423f047039af61eb55f9b70de31b98f3f",
+                "reference": "538ab22423f047039af61eb55f9b70de31b98f3f",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.2",
+                "php": ">=5.6.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.4",
+                "monolog/monolog": "1.*",
+                "phpunit/phpunit": "~5.6.0"
+            },
+            "suggest": {
+                "monolog/monolog": "Allows to handle logs",
+                "symfony/console": "Allows to use the command line interface"
+            },
+            "bin": [
+                "bin/feedio"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FeedIo\\": "src/FeedIo"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandre Debril",
+                    "email": "alex.debril@gmail.com"
+                }
+            ],
+            "description": "PHP library built to consume and serve JSONFeed / RSS / Atom feeds",
+            "homepage": "https://feed-io.net",
+            "keywords": [
+                "atom",
+                "cli",
+                "client",
+                "feed",
+                "jsonfeed",
+                "news",
+                "rss"
+            ],
+            "time": "2017-09-26T20:10:09+00:00"
+        },
+        {
+            "name": "debril/rss-atom-bundle",
+            "version": "v4.0.4",
+            "target-dir": "Debril/RssAtomBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexdebril/rss-atom-bundle.git",
+                "reference": "661776228e38ccd4a8c078459756d3d2f0118536"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexdebril/rss-atom-bundle/zipball/661776228e38ccd4a8c078459756d3d2f0118536",
+                "reference": "661776228e38ccd4a8c078459756d3d2f0118536",
+                "shasum": ""
+            },
+            "require": {
+                "debril/feed-io": "~3.0",
+                "php": ">=5.6",
+                "symfony/config": "~2.6|~3.0|~4.0",
+                "symfony/dependency-injection": "~2.6|~3.0|~4.0",
+                "symfony/framework-bundle": "~2.6|~3.0|~4.0",
+                "symfony/http-foundation": "~2.6|~3.0|~4.0",
+                "symfony/http-kernel": "~2.6|~3.0|~4.0"
+            },
+            "require-dev": {
+                "doctrine/common": "~2.3",
+                "doctrine/doctrine-bundle": "~1.2",
+                "phpunit/phpunit": "~5.5",
+                "symfony/browser-kit": ">3.0",
+                "symfony/finder": ">3.0",
+                "symfony/validator": ">3.0"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "allow to provide feeds' content from database"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Debril\\RssAtomBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "RSS / Atom and JSONFeed support for Symfony",
+            "homepage": "http://debril.org/category/rss-atom-bundle/",
+            "keywords": [
+                "Syndication",
+                "atom",
+                "feed",
+                "jsonfeed",
+                "rss"
+            ],
+            "time": "2017-08-17T05:34:39+00:00"
         },
         {
             "name": "doctrine/annotations",

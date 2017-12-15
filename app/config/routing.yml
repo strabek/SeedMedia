@@ -1,3 +1,6 @@
+rssatom:
+    resource: "@DebrilRssAtomBundle/Resources/config/routing.yml"
+  
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
