@@ -7,7 +7,7 @@ BBC Technology News - RSS (http://feeds.bbci.co.uk/news/technology/rss.xml)
 I used https://packagist.org/packages/debril/rss-atom-bundle to read and parse RSS feed.
 
 Slashdot.org - DOM (https://slashdot.org/)
-I used (https://packagist.org/packages/sunra/php-simple-html-dom-parser)
+I used (http://symfony.com/doc/3.4/components/dom_crawler.html)
 
 I've used Symfony framework as this is my main PHP framework, but if I would have to decide which technology to use I would use AWS Lambda (set of Lambda functions) with Python, save all items to DynamoDB or SQS, this depends on business needs, and then process it and finally save it in AWS RDS.
 Advantages of AWS solution:
@@ -18,3 +18,6 @@ Disadvanteges:
 
 All three news sources have different data structure and this should be taken into account while designing real life solution.
 Any duplicates could be removed by adding title hash and 1) search before adding new item or 2) make it PK and use REPLACE INTO SQL statement
+
+I've also created sample AWS Lambda function in Pytho to show how this could be approached (https://github.com/strabek/AWS-Lambda).
+As there was no request I have not created any visual part of the project.
