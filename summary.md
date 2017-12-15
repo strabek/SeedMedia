@@ -15,3 +15,4 @@ Advantages of AWS solution:
 2. Cost effective - AWS Lambda runs only when I need it - in PHP solution I need a server to run the code. I could use a container as well.
 
 All three news sources have different data structure and this should be taken into account while designing real life solution.
+Any duplicates could be removed by adding title hash and 1) search before adding new item or 2) make it PK and use REPLACE INTO SQL statement
